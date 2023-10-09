@@ -66,7 +66,7 @@ for item in frame.keys():
 del item, value, frame 
 
 # And then, we can create a data frame with class and parameters
-frame = {"Class": list(pointData["ints"]),"Elevation": sampleElevation,"Slope": sampleSlope,
+frame = {"Class": list(pointData["Class"]),"Elevation": sampleElevation,"Slope": sampleSlope,
          "Aspect": sampleAspect, "Curvature": sampleCurvature, "Rainfall": sampleRainfall}
 df = pd.DataFrame(frame)
 
@@ -114,13 +114,13 @@ ConfusionMatrixDisplay.from_estimator(model,
                       X_train,
                       y_train,
                       values_format='d',
-                      display_labels=['Taşkın Riski Yok','Taşkın Riski Var']).figure_.set_size_inches(5,5)
+                      display_labels=['No Flood Risk','Flood Risk']).figure_.set_size_inches(5,5)
 
 ConfusionMatrixDisplay.from_estimator(model,
                       X_test,
                       y_test,
                       values_format='d',
-                      display_labels=['Taşkın Riski Yok','Taşkın Riski Var']).figure_.set_size_inches(5,5)
+                      display_labels=['No Flood Risk','Flood Risk']).figure_.set_size_inches(5,5)
 
 """ Finding the coordinates of each pixel in the scope of area (In this work, sampledemRaster is the area of interest) """
 band1 = sampledemRaster.read(1)
